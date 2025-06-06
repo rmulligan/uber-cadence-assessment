@@ -8,7 +8,7 @@ import (
 	"go.uber.org/cadence/client"
 	"go.uber.org/cadence/worker"
 
-	"github.com/uber-common/cadence-samples/cmd/samples/common"
+	"github.com/rmulligan/uber-cadence-assessment/common"
 )
 
 // ApplicationName is the task list for this sample

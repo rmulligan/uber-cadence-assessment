@@ -71,31 +71,38 @@ Documentation/
 
 2. **Start Cadence server**
    ```bash
-   # Download docker-compose file
-   curl -LO https://raw.githubusercontent.com/cadence-workflow/cadence/refs/heads/master/docker/docker-compose.yml
-   docker-compose up -d
+   make setup-cadence
    ```
 
 3. **Build the workflow**
    ```bash
-   go build -o bin/uber-eats uber-eats/*.go
+   make build
    ```
 
 4. **Run the demo**
    ```bash
    # Start worker (in one terminal)
-   ./bin/uber-eats -m worker
+   make run-worker
    
-   # Trigger workflow (in another terminal)
-   ./bin/uber-eats -m trigger
+   # Trigger workflow (in another terminal) 
+   make run-trigger
    
    # Send accept signal (replace with actual workflow ID)
-   ./bin/uber-eats -m signal -w "workflow_id_from_trigger_output"
+   make run-signal WORKFLOW_ID="workflow_id_from_trigger_output"
    ```
 
 5. **View in Cadence Web UI**
    - Open: http://localhost:8088
    - Navigate to workflows to see execution details
+
+### Quick Commands
+```bash
+make help          # Show all available commands
+make demo          # Display demo instructions
+make setup-cadence # Start Cadence server
+make build         # Build the workflow
+make clean         # Clean build artifacts
+```
 
 ## Demo
 
